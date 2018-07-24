@@ -38,7 +38,7 @@ RawGDTEntry64 GDTEntry::makeShort() {
         .limit = (uint16_t)limit,
         .base_lo = (uint16_t)(base & 0xFFFF),
         .base_mid = (uint8_t)((base & 0xFF0000) >> 16),
-        .attrs = (uint16_t)(access & 0xFF),
+        .attrs = (uint16_t)access,
         .base_hi = (uint8_t)((base & 0xFF000000) >> 24),
     };
     return ret;
@@ -60,7 +60,7 @@ GDTEntry GDTEntry::getCode(int priv) {
     GDTEntry ret = {
         .base = 0,
         .limit = 0,
-        .access = 0,
+        .access = 1,
         .isTSS = false
     };
     ret.access |= (1 << 1);    // read/writable
@@ -76,7 +76,7 @@ GDTEntry GDTEntry::getData(int priv) {
     GDTEntry ret = {
         .base = 0,
         .limit = 0,
-        .access = 0,
+        .access = 1,
         .isTSS = false
     };
     ret.access |= (1 << 1);    // read/writable

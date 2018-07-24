@@ -4,7 +4,6 @@
 #include <cstdint>
 #include <vector>
 
-#include "vcpu.hpp"
 
 struct RawGDTEntry64 {
     uint16_t limit;

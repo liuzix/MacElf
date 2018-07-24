@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E9C05A7F21006773003918D1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9C05A7E21006773003918D1 /* main.cpp */; };
+		E9C05A8721010DBF003918D1 /* Hypervisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C05A8621010DBF003918D1 /* Hypervisor.framework */; };
+		E9C05A8A210114AA003918D1 /* mem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9C05A88210114AA003918D1 /* mem.cpp */; };
+		E9C05A8E210252D3003918D1 /* vcpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9C05A8C210252D3003918D1 /* vcpu.cpp */; };
+		E9C05A912102934D003918D1 /* gdt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9C05A8F2102934D003918D1 /* gdt.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E985D7A021052FEC001BFF84 /* arch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = arch.h; sourceTree = "<group>"; };
 		E9C05A7B21006773003918D1 /* MacElf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacElf; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C05A7E21006773003918D1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E9C05A8621010DBF003918D1 /* Hypervisor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hypervisor.framework; path = System/Library/Frameworks/Hypervisor.framework; sourceTree = SDKROOT; };
+		E9C05A88210114AA003918D1 /* mem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mem.cpp; sourceTree = "<group>"; };
+		E9C05A89210114AA003918D1 /* mem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mem.hpp; sourceTree = "<group>"; };
+		E9C05A8B210119AD003918D1 /* debug.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = debug.hpp; sourceTree = "<group>"; };
+		E9C05A8C210252D3003918D1 /* vcpu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vcpu.cpp; sourceTree = "<group>"; };
+		E9C05A8D210252D3003918D1 /* vcpu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vcpu.hpp; sourceTree = "<group>"; };
+		E9C05A8F2102934D003918D1 /* gdt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gdt.cpp; sourceTree = "<group>"; };
+		E9C05A902102934D003918D1 /* gdt.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = gdt.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C05A8721010DBF003918D1 /* Hypervisor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +55,9 @@
 		E9C05A7221006773003918D1 = {
 			isa = PBXGroup;
 			children = (
-				E9C05A7D21006773003918D1 /* MacElf */,
+				E9C05A7D21006773003918D1 /* src */,
 				E9C05A7C21006773003918D1 /* Products */,
+				E9C05A8521010DBF003918D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +69,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E9C05A7D21006773003918D1 /* MacElf */ = {
+		E9C05A7D21006773003918D1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				E9C05A8F2102934D003918D1 /* gdt.cpp */,
+				E9C05A902102934D003918D1 /* gdt.hpp */,
 				E9C05A7E21006773003918D1 /* main.cpp */,
+				E9C05A88210114AA003918D1 /* mem.cpp */,
+				E9C05A89210114AA003918D1 /* mem.hpp */,
+				E9C05A8B210119AD003918D1 /* debug.hpp */,
+				E9C05A8C210252D3003918D1 /* vcpu.cpp */,
+				E9C05A8D210252D3003918D1 /* vcpu.hpp */,
+				E985D7A021052FEC001BFF84 /* arch.h */,
 			);
-			path = MacElf;
+			path = src;
+			sourceTree = "<group>";
+		};
+		E9C05A8521010DBF003918D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9C05A8621010DBF003918D1 /* Hypervisor.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9C05A7F21006773003918D1 /* main.cpp in Sources */,
+				E9C05A8A210114AA003918D1 /* mem.cpp in Sources */,
+				E9C05A8E210252D3003918D1 /* vcpu.cpp in Sources */,
+				E9C05A912102934D003918D1 /* gdt.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
